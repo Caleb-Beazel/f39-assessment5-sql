@@ -84,13 +84,6 @@ module.exports = {
                 country_id INT REFERENCES countries(country_id)
             );
 
-            INSERT INTO cities (name, rating)
-            ('country_id', SELECT countries.country_id FROM countries
-
-            VALUES ('New York City', 2, 187),
-            ('Vancouver', 4, 33),
-            ('West Lafayette', 5, 187);
-
             insert into countries (name)
             values ('Afghanistan'),
             ('Albania'),
@@ -287,9 +280,16 @@ module.exports = {
             ('Yemen'),
             ('Zambia'),
             ('Zimbabwe');
+
         `).then(() => {
             console.log('DB seeded!')
             res.sendStatus(200)
         }).catch(err => console.log('error seeding DB', err))
     }
 }
+
+// INSERT INTO cities (name, rating, country_id) ----- Jared told me how to do this extra credit so don't give me credit for it.
+
+//             VALUES ('New York City', 2, 187),
+//             ('Vancouver', 4, 33),
+//             ('West Lafayette', 5, 187);
